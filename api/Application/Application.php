@@ -53,6 +53,10 @@ class Application {
             case 'parallelogram':
                 $parallelogram = new Parallelogram($data[0]["x"], $data[0]["y"], $data[1]["x"], $data[1]["y"], $data[2]["x"], $data[2]["y"]);
                 array_push($data, $parallelogram->calcArea());
+                if ($parallelogram->checkSquare()) // Если квадрат
+                    array_push($data, "square");
+                else 
+                    array_push($data, "not square");
                 return $data;
             default:
                 return '?????';

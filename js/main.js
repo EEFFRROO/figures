@@ -87,8 +87,12 @@ window.onload = () => {
                 let type;
                 if (element[0]["figureType"] == "triangle")
                     type = "Треугольник";
-                else 
-                    type = "Параллелограмм";
+                else  {
+                    if (element[4] == "square")
+                        type = "Квадрат";
+                    else
+                        type = "Параллелограмм";
+                }
                 td.textContent = type;
                 tr.append(td);
                 td = document.createElement("td");

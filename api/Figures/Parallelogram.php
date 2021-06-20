@@ -25,4 +25,32 @@ class Parallelogram extends Figure {
         return $result;
     }
 
+    public function checkSquare() { // Проверка на квадрат
+        $firstDist = $this->point1->squareOfDistance($this->point2);
+        $secondDist = $this->point2->squareOfDistance($this->point3);
+        $thirdDist = $this->point3->squareOfDistance($this->point1);
+        $diagonal = $this->bigger($firstDist, $this->bigger($secondDist, $thirdDist));
+        if ($side = $this->equal($firstDist, $secondDist, $thirdDist)) {
+            if ($diagonal == $side * 2)
+                return true;
+        }
+        return false;
+    }
+
+    private function bigger($a, $b) {
+        if ($a > $b)
+            return $a;
+        return $b;
+    }
+
+    private function equal($a, $b, $c) {
+        if ($a == $b)
+            return $a;
+        if ($a == $c)
+            return $a;
+        if ($b == $c)
+            return $b;
+        return false;
+    }
+
 }

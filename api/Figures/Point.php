@@ -24,7 +24,12 @@ class Point {
     }
 
     public function calcDistance($point) {
-        $result = sqrt(($point->x - $this->x) * ($point->x - $this->x) + ($point->y - $this->y) * ($point->y - $this->y));
+        $result = sqrt($this->squareOfDistance($point));
+        return $result;
+    }
+
+    public function squareOfDistance($point) {
+        $result = ($point->x - $this->x) * ($point->x - $this->x) + ($point->y - $this->y) * ($point->y - $this->y);
         return $result;
     }
 
